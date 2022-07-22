@@ -19,7 +19,6 @@ open class GoodForm: NSObject {
     validator.delegate = self
   }
 
-
   /// Register a field in the form
   /// - Parameter config: Configuration for the field being added to the form
   public func registerField(_ config: GoodFormFieldConfig) {
@@ -42,6 +41,9 @@ open class GoodForm: NSObject {
     }
   }
 
+
+  /// The current values of the form fields
+  /// - Returns: Dictionary of the form field names and their current value
   public func values() -> [String: String] {
     var values = [String: String]()
     fieldConfigs.values.forEach { config in
@@ -51,6 +53,8 @@ open class GoodForm: NSObject {
     return values
   }
 
+
+  /// Perform validation checks (if any) on all form fields
   public func validate() {
     let formValues = values()
 
